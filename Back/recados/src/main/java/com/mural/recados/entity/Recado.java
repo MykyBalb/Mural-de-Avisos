@@ -1,6 +1,7 @@
 package com.mural.recados.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,4 +21,10 @@ public class Recado {
     private String descricao;
     private String autor;
     private LocalDate dataPublicacao;
+
+    @PrePersist
+    private void prePersist() {
+        this.dataPublicacao = LocalDate.now();
+    }
+    
 }

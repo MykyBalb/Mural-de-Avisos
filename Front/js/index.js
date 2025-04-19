@@ -6,15 +6,14 @@ window.onload = () => {
 const getRecado = async (url) => {
   fetch(url)
     .then((response) => response.json())
-    .then((data) => showRecados(data))
+    .then((data) => showRecados(data, url))
     .catch((error) => console.error('Error:', error));
 };
 
-const showRecados = (data) => {
-  console.log(data);
+const showRecados = (data, url) => {
   const recados = document.querySelector('#mural');
 
-  data.forEach((element) => {
+  data.slice().reverse().forEach((element) => {
     const article = document.createElement('article');
     article.classList.add('postItRecado');
     article.dataset.id = element.idRecado;
@@ -31,17 +30,17 @@ const showRecados = (data) => {
         `;
     recados?.appendChild(article);
   });
-  getIds();
+  getIds(url);
 };
 
-const getIds = () => {
+const getIds = url => {
     const deleteButtons = document.querySelectorAll('.delete');
     const updateButtons = document.querySelectorAll('.update');
     
     deleteButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
         const id = e.target.closest('article').dataset.id;
-        console.log(id);
+        deleterecado(id, url);
         });
     });
     
@@ -52,3 +51,27 @@ const getIds = () => {
         });
     });
 };
+
+const deleterecado = async (id, url) => {
+    const response = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (response.status === 204) {
+        window.location.reload();
+    } else {
+        const erro = document.querySelector('#erro');
+        erro.innerHTML = '';
+        const p = document.createElement('p');
+        p.classList.add('error');
+        p.textContent = 'Erro ao deletar recado, por favor tente novamente';
+        erro.appendChild(p);
+        setTimeout(() => {
+            if(erro.lastChild) {
+                erro.removeChild(erro.lastChild);
+            }
+        }, 3000);
+    }
+}

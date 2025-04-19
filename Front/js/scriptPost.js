@@ -2,16 +2,14 @@ window.onload = () => {
     document.querySelector('#reload').addEventListener('submit', event => {event.preventDefault()});
     const URL = 'http://localhost:8080/avisos';
     const POST = document.querySelector('#cadastrarRecado');
-    const UPDATE = document.querySelector('#atualizarRecado');
-
     POST ? POST.addEventListener('click', () => {postRecado(URL)}) : null;
-    UPDATE ? UPDATE.addEventListener('click', updateRecado) : null;
 }
 
-const postRecado = async url => {
+async function postRecado(url) {
     const tituloInput = document.querySelector('#tituloRecado');
     const descricaoInput = document.querySelector('#descricaoRecado');
     const autorInput = document.querySelector('#autorRecado');
+
     if (tituloInput.value === '' || descricaoInput.value === '' || autorInput.value === '') {
         const erro = document.querySelector('#erro');
         erro.innerHTML = '';
@@ -34,7 +32,6 @@ const postRecado = async url => {
     const data = {titulo: titulo, descricao: descricao, autor: autor}
 
     try {
-        console.log('try');
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -60,7 +57,5 @@ const postRecado = async url => {
     } catch {
         console.error('Erro:', error);
     }
-
-
-
 }
+

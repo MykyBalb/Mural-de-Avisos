@@ -24,6 +24,13 @@ public class RecadoController {
         return ResponseEntity.ok(listaRecados);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Recado> getRecado(@PathVariable Long id) {
+        Recado recado = recRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recado não encontrado"));
+        return ResponseEntity.ok(recado);
+    }
+
     @PostMapping
     public ResponseEntity<Recado> postRecado(@Valid @RequestBody Recado recado) {
         try {

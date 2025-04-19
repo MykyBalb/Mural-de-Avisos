@@ -95,7 +95,7 @@ body {
   align-items: center;
 }
 
-#cadastrarRecado {
+#cadastrarRecado, #atualizarRecado {
   margin-top: 20px;
   border: 1px solid #333;
   border-radius: 5px;
@@ -104,12 +104,12 @@ body {
   color: white;
 }
 
-#cadastrarRecado:hover {
+#cadastrarRecado:hover, #atualizarRecado:hover {
   background-color: #575757;
   cursor: pointer;
 }
 
-#cadastrarRecado:active {
+#cadastrarRecado:active, atualizarRecado:active {
   background-color: #333;
   transform: scale(0.9);
 }
@@ -121,7 +121,6 @@ body {
 }
 
 .postItRecado {
-  border: 1px solid red;
   border-radius: 20px;
   width: 20%;
   margin: 20px;

@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.listMenu a,
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: ease 0.3s;
+}
+
+.listMenu a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+.listMenu:not(:last-child) {
+  margin-right: 15px;
+}
+
+.logoTitle {
+  display: flex;
+  align-items: center;
+}
+
+#title {
+  font-family: "Martian Mono";
+  text-transform: uppercase;
+}
+
+.imgMural {
+  width: 20%;
+  margin-right: 5%;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+
+.formsStyle {
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 50px 100px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px;
+}
+
+.formsStyle label {
+  width: 100%;
+  text-align: start;
+  margin: 10px 0 0 5%;
+}
+
+.formsStyle input {
+  width: 100%;
+  height: 20px;
+  border: none;
+  border-bottom: 2px solid #333;
+  transition: ease 0.5s;
+}
+
+.formsStyle input:focus {
+  outline: none;
+  background-color: #f1f1f1;
+  border-bottom: 2px solid #333;
+}
+
+.boxContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cadastrarRecado {
+  margin-top: 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+#cadastrarRecado:hover {
+  background-color: #575757;
+  cursor: pointer;
+}
+
+#cadastrarRecado:active {
+  background-color: #333;
+  transform: scale(0.9);
+}
+
+#mural {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.postItRecado {
+  border: 1px solid red;
+  border-radius: 20px;
+  width: 20%;
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: end;
+  min-height: 40px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.update,
+.delete {
+  cursor: pointer;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease 0.5s;
+}
+
+.delete {
+  border: 1px solid #a20000;
+  background-color: #ff4d4d;
+}
+
+.update {
+  border: 1px solid #008e00;
+  background-color: #4dff4d;
+}
+
+.update i,
+.delete i {
+  font-size: 16px;
+}
+
+.delete:hover,
+.update:hover {
+  transform: scale(1.1);
+  transform: rotate(360deg);
+}
+
+.delete:active,
+.update:active {
+  transform: scale(0.8);
+}
+
+@media (max-width: 768px) {
+  .logoTitle {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .menu {
+    text-align: center;
+    flex-flow: column;
+  }
+
+  .menu .listMenu {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .postItRecado {
+    width: 90%;
+    min-height: 200px;
+  }
+}
